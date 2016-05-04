@@ -1,0 +1,739 @@
+// retina対応。座標、大きさを1/2する。
+
+sprite_none($args)
+  background url($args[8]) no-repeat ($args[2]) ($args[3])
+  width ($args[4])
+  height ($args[5])
+  background-size ($args[6]) ($args[7])
+  display block
+
+retina_2($x)
+  $x / 2
+
+sprite_r2($args)
+  background url($args[8]) no-repeat retina_2($args[2]) retina_2($args[3])
+  width retina_2($args[4])
+  height retina_2($args[5])
+  background-size retina_2($args[6]) retina_2($args[7])
+  display block
+
+// retina対応。座標、大きさを1/3する。
+
+retina_3($x)
+  $x / 3
+
+sprite_r3($args)
+  background url($args[8]) no-repeat retina_3($args[2]) retina_3($args[3])
+  width retina_3($args[4])
+  height retina_3($args[5])
+  background-size retina_3($args[6]) retina_3($args[7])
+  display block
+
+// retina対応。座標、大きさを1/4する。
+
+retina_4($x)
+  $x / 4
+
+sprite_r4($args)
+  background url($args[8]) no-repeat retina_4($args[2]) retina_4($args[3])
+  width retina_4($args[4])
+  height retina_4($args[5])
+  background-size retina_3($args[6]) retina_4($args[7])
+  display block
+
+// retina対応。座標、大きさを1/5する。
+
+retina_5($x)
+  $x / 5
+
+sprite_r5($args)
+  background url($args[8]) no-repeat retina_5($args[2]) retina_5($args[3])
+  width retina_5($args[4])
+  height retina_5($args[5])
+  background-size retina_5($args[6]) retina_5($args[7])
+  display block
+
+//font-size_px
+font_size_and_height_px(arg)
+  font-size (arg)px!important
+  line-height (arg)px!important
+
+//font-size_px
+font_size_and_height_em(arg)
+  font-size (arg)em!important
+  line-height (arg)em!important
+
+.is_txtAcenter
+  text-align center
+
+.is_txtAleft
+  text-align left
+
+.is_txtAright
+  text-align righ
+
+
+.bold
+  font-weight bold!important
+
+.block
+  display block!important
+
+//text-size
+.is_ftSize_11
+  font_size_and_height_px(11)
+
+.is_ftSize_12
+  font_size_and_height_px(12)
+
+.is_ftSize_13
+  font_size_and_height_px(13)
+
+.is_ftSize_14
+  font_size_and_height_px(14)
+
+.is_ftSize_15
+  font_size_and_height_px(15)
+
+.is_ftSize_16
+  font_size_and_height_px(16)
+
+.is_ftSize_17
+  font_size_and_height_px(17)
+
+.is_ftSize_18
+  font_size_and_height_px(18)
+
+.is_ftSize_19
+  font_size_and_height_px(19)
+
+.is_ftSize_20
+  font_size_and_height_px(20)
+
+.is_ftSize_21
+  font_size_and_height_px(21)
+
+.is_ftSize_22
+  font_size_and_height_px(22)
+
+.is_ftSize_23
+  font_size_and_height_px(23)
+
+.is_ftSize_24
+  font_size_and_height_px(24)
+
+.is_ftSize_25
+  font_size_and_height_px(25)
+
+
+//margin
+
+.is_mR0
+  margin-right 0px
+
+.is_mR1
+  margin-right 1px
+
+.is_mR2
+  margin-right 2px
+
+.is_mR5
+  margin-right 5px
+
+.is_mR10
+  margin-right 10px
+
+.is_mR15
+  margin-right 15px
+
+.is_mR20
+  margin-right 20px
+
+.is_mR30
+  margin-right 30px
+
+.is_mR40
+  margin-right 40px
+
+.is_mB0
+  margin-bottom 0px!important
+
+.is_mB5
+  margin-bottom 5px!important
+
+.is_mB10
+  margin-bottom 10px!important
+
+.is_mB15
+  margin-bottom 15px!important
+
+.is_mB20
+  margin-bottom 20px!important
+
+.is_mB30
+  margin-bottom 30px!important
+
+.is_mB40
+  margin-bottom 40px!important
+
+.is_mT0
+  margin-top 0px!important
+
+.is_mT2
+  margin-top 2px!important
+
+.is_mT5
+  margin-top 5px!important
+
+.is_mT10
+  margin-top 10px!important
+
+.is_mT15
+  margin-top 15px!important
+
+.is_mT20
+  margin-top 20px!important
+
+.is_mT25
+  margin-top 25px!important
+
+.is_mT30
+  margin-top 30px!important
+
+.is_mT35
+  margin-top 35px!important
+
+.is_mT40
+  margin-top 40px!important
+
+.is_mT50
+  margin-top 50px
+
+.is_mT60
+  margin-top 60px
+
+.is_mR0
+  margin-right 0px!important
+
+.is_mL1
+  margin-left 1px
+
+.is_mL2
+  margin-left 2px
+
+.is_mL10
+  margin-left 10px
+
+.is_mL5
+  margin-left 5px
+
+.is_mL10
+  margin-left 10px
+
+.is_RL12
+  margin-left 12px
+  margin-right 12px
+
+//padding
+.is_pT0
+  padding-top 0!important
+
+.is_pB40
+  padding-bottom 40px!important
+
+.is_pB30
+  padding-bottom 30px!important
+
+.is_pTB0
+  padding 0px 0!important
+
+.is_pTB5
+  padding 5px 0!important
+
+.is_pTB10
+  padding 10px 0!important
+
+.is_pTB15
+  padding 15px 0!important
+
+.is_pB0
+  padding-bottom 0!important
+
+.is_pT0
+  padding-top 0!important
+
+.is_pT5
+  padding-top 5!important
+
+.is_padding15
+  padding 15px
+
+.is_trunk
+  overflow hidden
+  white-space nowrap
+  text-overflow ellipsis
+
+
+//position
+.adjust_top_0
+  position relative!important
+  top 0px!important
+
+.adjust_top_1
+  position relative!important
+  top -1px!important
+
+.adjust_top_2
+  position relative!important
+  top -2px!important
+
+.adjust_top_3
+  position relative!important
+  top -4px!important
+
+.adjust_top_4
+  position relative!important
+  top -4px!important
+
+.adjust_top_5
+  position relative!important
+  top -5px!important
+
+.adjust_top_6
+  position relative!important
+  top -6px
+
+.adjust_top_7
+  position relative!important
+  top -7px!important
+
+.adjust_top_8
+  position relative!important
+  top -8px!important
+
+.adjust_top_9
+  position relative
+  top -9px
+
+.adjust_top1
+  position relative!important
+  top 1px!important
+
+.adjust_top2
+  position relative!important
+  top 2px!important
+
+.adjust_top3
+  position relative!important
+  top 3px!important
+
+.adjust_top4
+  position relative!important
+  top 4px!important
+
+.adjust_top5
+  position relative!important
+  top 5px!important
+
+.adjust_top-5
+  position relative!important
+  top -5px!important
+
+//reset
+defaults = {
+  box-sizing: border-box
+  cursor: default
+  disabled-color: rgba(0,0,0,.6)
+  font-family: 'sans-serif'
+  input-background: transparent
+  line-height: 1.5em
+  monospace-font-family: monospace
+  nav-list-style: none
+  selection-background-color: #B3D4FC
+  small-font-size: 75%
+  text-rendering: optimizeLegibility
+  textarea-resize: vertical
+  vertical-align: top
+}
+
+
+//Normalization
+
+  //z-index
+
+.z-999
+  z-index 999!important
+
+  //アニメーション
+.none
+  display none!important
+
+.fadeHidden
+  display none
+
+
+.fadeHiddenOpacity
+  opacity 0
+
+.fadeIn
+  display block
+  animation fadeIn .5s ease-in-out forwards
+
+.md_disabled
+  pointer-events  none
+  background clr_grayB
+  color clr_grayA!important
+  border 1px solid clr_grayB!important
+
+.md_disabled_none
+  @extend .md_disabled
+  opacity 0
+
+@keyframes fadeIn
+  0%
+    opacity 0
+
+  100%
+    opacity 1
+
+.slideUp
+  overflow hidden
+  height: 0
+  transition .5s
+
+.slideDown
+  overflow visible
+  height 95vw
+  transition: .5s
+
+.mod-hiddenTxt
+  @extend .fadeHidden
+  overflow hidden
+  text-indent 100%
+  white-space nowrap
+  display block
+
+.is_hover_transition
+  transition .3s
+
+.is_noHover_transition
+  transition none
+
+.is_hover_opacity
+  opacity .8
+
+
+
+html
+body
+  font-size 10px
+  line-height 10px
+  height 100%
+
+header
+footer
+.l_footerBottom
+.l_gNav
+main
+  min-width 960px
+
+:root
+  -ms-overflow-style: -ms-autohiding-scrollbar // IE11+
+  overflow-y: scroll // All browsers without overlaying scrollbars
+  text-size-adjust: 100% // iOS 8+
+
+audio:not([controls])
+  display: none // Chrome 40+, iOS 8+, Safari 8+
+
+details
+  display: block // Firefox 35+, Internet Explorer 11+, Windows Phone 8.1+
+
+input
+  &[type="number"]
+    width: auto // Firefox 36+
+
+  &[type="search"]
+    -webkit-appearance: textfield // Safari 8+
+
+    &::-webkit-search-cancel-button
+    &::-webkit-search-decoration
+      -webkit-appearance: none // Safari 8+
+
+main
+  display block // Android 4.3-, Internet Explorer 11+, Windows Phone 8.1+
+
+
+summary
+  display: block // Firefox 35+, Internet Explorer 11+, Windows Phone 8.1+
+
+pre
+  overflow: auto // Internet Explorer 11+
+
+progress
+  display: inline-block // Internet Explorer 11+, Windows Phone 8.1+
+
+small
+  font-size: defaults['small-font-size'] // All browsers
+
+template
+  display: none // Android 4.3-, Internet Explorer 11+, iOS 7-, Safari 7-, Windows Phone 8.1+
+
+textarea
+  overflow: auto // Internet Explorer 11+
+
+[hidden]
+  display: none // Internet Explorer 10-
+
+[unselectable]
+  user-select: none // Android 4.4+, Chrome 40+, Firefox 36+, iOS 8+, Safari 8+
+
+
+// remove margin and padding everywhere
+
+*
+  margin 0
+  padding 0
+
+// specify default styles in the document
+
+.l_width100
+  width 100%!important
+
+.l_width95
+  width 95%!important
+
+.l_width90
+  width 90%!important
+
+.l_width85
+  width 85%!important
+
+.l_width80
+  width 80%!important
+
+.l_width75
+  width 75%!important
+
+.l_width70
+  width 70%!important
+
+.l_width65
+  width 65%!important
+
+.l_ac
+  margin 0 auto
+  display block
+
+:root
+  box-sizing: defaults['box-sizing']
+  cursor: defaults['cursor']
+  font-family: defaults['font-family']
+  line-height: defaults['line-height']
+  text-rendering: defaults['text-rendering']
+  vertical-align: defaults['vertical-align']
+
+// style cursor to match native experience
+
+*
+  cursor: inherit
+  color #333333
+
+h1
+  font-size 1.5em
+
+a
+button
+input
+select
+textarea
+  cursor: initial
+  vertical-align middle
+  text-decoration underline
+
+a
+  cursor pointer
+
+a:link
+  color: #006699
+
+a:visited
+  color #15227c
+
+.li
+  list-style none
+
+.l_inner
+  width 970px
+  margin 0 auto
+  position relative
+
+// specify or remove the background color on inputs
+
+button
+input
+select
+textarea
+  background: defaults['input-background']
+
+// specify monospace font
+
+code
+kbd
+pre
+samp
+  font-family: defaults['monospace-font-family'], monospace
+
+// match input height with line height
+
+input
+  min-height: defaults['line-height']
+
+// specify nav list style
+
+nav ol
+nav ul
+  list-style: defaults['nav-list-style']
+
+// style select like a standard input
+
+.mod-hiddenTxt
+  text-indent 100%
+  white-space nowrap
+
+
+.l_js_overLay
+.l_js_overLaySub
+  background rgba(0,0,0,.7)
+  width 100%
+  position absolute
+  min-height 100%
+  @extend .fadeHidden
+
+  &.is_display
+    @extend .fadeIn
+    z-index 1499
+
+
+.l_selectWrap
+  position relative
+  display inline-block
+  width 155px
+
+  .md_searchArrows
+    position absolute
+    color clr_grayB
+    top 4px
+    right 6px
+    font_size_and_height_px(14)
+    z-index -1
+
+  .md_md
+    width 137px
+    text-align center
+    padding-top 7px
+    border none
+    height 20px
+    font_size_and_height_px(15)
+    cursor pointer
+
+select
+  -moz-appearance: none    // Firefox 36+
+  -webkit-appearance: none // Chrome 41+
+  moz-appearance:none;
+  appearance:none;
+  text-indent: .01px; /*Firefox用*/
+  text-overflow: ""; /*Firefox用*/
+  height: 20px;
+  font_size_and_height_px(15)
+  border: 1px solid #B3B3B3;
+  border-radius: 2px;
+  text-indent: .01px;
+  padding 1px 30px 2px 5px
+  background-color transparent
+  z-index 1
+
+  &::-ms-expand
+    display: none        // Internet Explorer 11+
+
+  &::-ms-value
+    color: currentColor  // Internet Explorer 11+
+
+
+/*
+<span class="is_ftSize_14 is_mR5">表示件数&nbsp:</span>
+<div class="l_selectWrap">
+  <select name="listsort"  class="a md_recordSearh">
+    <option value="" selected="selected">100件</option>
+    <option value="" selected="selected">10件</option>
+  </select>
+  <div class="md_searchArrows">▼</div>
+</div>
+*/
+
+// remove table spacing
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+// specify textarea resizability
+
+textarea
+  resize: defaults['textarea-resize']
+
+// specify text selection background color and omit drop shadow
+
+::selection
+  background-color: defaults['selection-background-color'] // required when declaring ::selection
+  text-shadow: none
+
+// hide content from screens but not screenreaders
+
+@media screen
+  [hidden~="screen"]
+    display: inherit
+
+  [hidden~="screen"]:not(:active):not(:focus):not(:target)
+    clip: rect(0 0 0 0) !important
+    position: absolute !important
+
+//clear-fix
+.l_horizon
+  position relative
+
+  & > *
+    float left
+
+  &:after
+    display block
+    clear both
+    content ''
+
+//layout
+.l_right
+  float right!important
+
+.l_left
+  float left!important
+
+.l_abBottom
+  position absolute
+  bottom 0px
+
+.l_rightBottm
+  @extend .l_abBottom
+  right 0px
+
+.l_leftBottm
+  @extend .l_abBottom
+  left 0px
+
+.a
+  text-decoration none
+  @extend .is_hover_transition
+
+.aDeco
+  cursor pointer
+  &:hover
+    text-decoration underline
+

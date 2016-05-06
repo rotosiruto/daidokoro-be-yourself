@@ -31,8 +31,10 @@ App::uses('Folder', 'Utility');
  */
 class TopPagesController extends AppController {
 	public $autoLayout = false;
+	public $uses = array('Content');
 	public function index() {
 	    //インスタンスを作成
+	    $contentsData = $this -> Content -> find('all',array('limit' =>10,'order' => array('updated_at' => 'asc'), ));
 	    $dir = new Folder('img/masonry');
 	    $files = $dir->read();
 	    $this->set('files',$files);

@@ -468,12 +468,12 @@ select,
 textarea {
   cursor: initial;
   vertical-align: middle;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a {
   cursor: pointer;
-}
-a:link {
+  -webkit-transition: all 0.3s;
+          transition: all 0.3s;
   color: #069;
 }
 a:visited {
@@ -673,6 +673,51 @@ textarea {
 #header,
 section {
   padding: 10px;
+}
+#header .md_readWrap,
+section .md_readWrap {
+  background: #ecebeb;
+  padding: 10px;
+  border-radius: 3px;
+  display: block;
+  margin-top: 10px;
+}
+#header .md_readWrap:first-child,
+section .md_readWrap:first-child {
+  margin-top: 0px;
+}
+#header .md_readTitle p,
+section .md_readTitle p {
+  margin: 0 0 10px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.md_btn {
+  padding: 5px;
+  color: #fff;
+  border-radius: 3px;
+  display: inline-block;
+}
+.md_btn.is_large {
+  padding: 10px;
+  font-size: 14px;
+}
+.md_btn.is_middle {
+  padding: 7px;
+  font-size: 12px;
+}
+.md_btn.is_green {
+  background-color: #369043;
+}
+.md_newRead {
+  font-size: 10px;
+  padding: 3px 5px;
+  color: #fff;
+  background: #de589c;
+  border-radius: 3px;
+  margin-right: 5px;
 }
 h1,
 h2,

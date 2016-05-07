@@ -552,16 +552,15 @@ select
 textarea
   cursor: initial
   vertical-align middle
-  text-decoration underline
+  text-decoration none
 
 a
   cursor pointer
-
-a:link
-  color: #006699
-
-a:visited
-  color #15227c
+  transition all .3s
+  color #006699
+  &:visited
+    color #15227c
+  
 
 .li
   list-style none
@@ -772,6 +771,50 @@ textarea
 #header
 section
   padding 10px
+  .md_readWrap
+    background: #ECEBEB;
+    padding: 10px;
+    border-radius: 3px;
+    display block
+    margin-top 10px
+    &:first-child
+      margin-top 0px
+    
+  .md_readTitle    
+    p
+      margin 0 0 10px
+      width 100%
+      overflow hidden
+      white-space nowrap
+      text-overflow ellipsis
+      
+.md_btn
+  padding 5px  
+  color #fff
+  border-radius 3px
+  display inline-block
+  
+  &.is_large
+    padding 10px
+    font-size 14px
+    
+  &.is_middle
+    padding 7px
+    font-size 12px
+  
+  &.is_green
+    background-color #369043
+    
+  
+
+.md_newRead
+  font-size 10px
+  padding 3px 5px
+  color #fff
+  background #DE589C
+  border-radius 3px
+  margin-right 5px
+    
 h1,h2,h3,h4
   font-size 30px
   color #777  

@@ -42,7 +42,46 @@ foreach ($files[1] as $key => $value) {
 </section>
 <section>
   <h2>こまちのコラム</h2>
-  <p><a href="">自分にあった自然な食事と暮らしに出会ったきっかけ</a></p>
+<?php
+$TODAY = strtotime(date('Y/m/d'));
+function check_new_post($date) {
+  global $TODAY;
+  $date = strtotime($date);
+  $dayDiff = abs($TODAY - $date) / 86400; //(60 * 60 * 24)
+  return ($dayDiff < 14);
+}
+?>
+
+<?php foreach ($contentsData as $key => $value):?>
+<?php
+  if($value['Content']['performance_day']){
+    $performance_day = date_format(date_create($value['Content']['performance_day']), 'Y/m/d');
+  }
+  else {
+    $performance_day = NULL;
+  }
+?>
+  <a class="md_readWrap" href="<?php echo $value['Content']['id'];?>">
+    <div class="md_readTitle">
+      <p>
+        <?php
+          if(!check_new_post( substr($value['Content']['registration_date'],0,10))) {
+            echo '<span class="md_newRead">NEW!</span>';
+          }
+          echo $value['Content']['title'];
+        ?>  
+      </p>      
+    </div>
+    <div class="l_horizon">
+      <p>更新日:<?php echo substr($value['Content']['registration_date'],0,10);?></p>
+      <?php if($performance_day){
+        echo '<div class="md_btn is_green is_middle l_right">公演開催日： '.$performance_day.'</div>';
+        }
+      ?>      
+    </div>
+  </a>
+<?php endforeach; ?>
+  
   
 </section>
 </div>

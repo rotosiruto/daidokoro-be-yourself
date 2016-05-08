@@ -43,12 +43,26 @@ foreach ($files[1] as $key => $value) {
 <section>
   <h2>こまちのコラム</h2>
 <?php
-$TODAY = strtotime(date('Y/m/d'));
-function check_new_post($date) {
-  global $TODAY;
-  $date = strtotime($date);
-  $dayDiff = abs($TODAY - $date) / 86400; //(60 * 60 * 24)
-  return ($dayDiff < 14);
+$today = date('Y-m-d');
+function day_diff($date1, $date2) {
+ 
+    // 日付をUNIXタイムスタンプに変換
+    $timestamp1 = strtotime($date1);
+    $timestamp2 = strtotime($date2);
+ 
+    // 何秒離れているかを計算
+    $seconddiff = abs($timestamp2 - $timestamp1);
+ 
+    // 日数に変換
+    $daydiff = $seconddiff / (60 * 60 * 24);
+ 
+    // 戻り値
+    return $daydiff;
+ 
+}
+function tag_weekday_japanese_convert( $date ){
+ $weekday = array( '日', '月', '火', '水', '木', '金', '土' );
+ return $weekday[date( 'w',strtotime( $date ) )];
 }
 ?>
 
@@ -60,24 +74,52 @@ function check_new_post($date) {
   else {
     $performance_day = NULL;
   }
+
+  if ($value['Content']['registration_date']) {
+    $registration_date = date_format(date_create($value['Content']['registration_date']), 'Y/m/d');
+  }
+  else {
+    $registration_date = NULL;
+  }
+
+
+  if ($value['Content']['thumbnail']) {
+    $thumbnail = $this->Html->webroot.'img/contentThumbnail/'.$value['Content']['thumbnail'];
+  }
+  else {
+    $thumbnail = $this->Html->webroot.'img/contentThumbnail/60490fd4a3ae114b77ff7f8ec54c14ac_m.jpg';
+  }
 ?>
-  <a class="md_readWrap" href="<?php echo $value['Content']['id'];?>">
-    <div class="md_readTitle">
-      <p>
+
+  <a class="md_readWrap l_horizon" href="<?php echo $value['Content']['id'];?>">
+    <div class="md_ratioBox ratio-1_1">
+      <div class="inner">
+        <div class="is_table">
+          <img src="<?php echo $thumbnail;?>" alt="">   
+        </div>
+      </div>
+    </div>     
+    <div class="md_readMeta">
+      <p class="md_readTitle">
         <?php
-          if(!check_new_post( substr($value['Content']['registration_date'],0,10))) {
-            echo '<span class="md_newRead">NEW!</span>';
+            if(day_diff($registration_date, $today) < 30) {
+            echo '<span class="md_newRead">新着!</span>';
           }
-          echo $value['Content']['title'];
-        ?>  
-      </p>      
-    </div>
-    <div class="l_horizon">
-      <p>更新日:<?php echo substr($value['Content']['registration_date'],0,10);?></p>
-      <?php if($performance_day){
-        echo '<div class="md_btn is_green is_middle l_right">公演開催日： '.$performance_day.'</div>';
+          echo mb_strimwidth($value['Content']['title'], 0, 60, '・・・', 'UTF-8');
+        ?>
+        <span class="md_update">更新日:<?php echo $registration_date.'('.tag_weekday_japanese_convert($registration_date).')';?>
+        </span>   
+      </p>
+      <p class="md_readContent">
+        <?php            
+          echo mb_strimwidth($value['Content']['contents'], 0, 200, '・・・', 'UTF-8');
+        ?> 
+      </p>
+      <?php
+        if($value['Content']['do_performance']){
+          echo '<div class="md_btn is_gray is_middle l_ac">公演開催日： '.$performance_day.'('.tag_weekday_japanese_convert($performance_day).')</div>';
         }
-      ?>      
+      ?> 
     </div>
   </a>
 <?php endforeach; ?>

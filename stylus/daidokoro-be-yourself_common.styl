@@ -433,6 +433,7 @@ body
 body  
   opacity 0
   transition all 1s
+  letter-spacing .6px
 
 header
 footer
@@ -662,19 +663,6 @@ select
     color: currentColor  // Internet Explorer 11+
 
 
-/*
-<span class="is_ftSize_14 is_mR5">表示件数&nbsp:</span>
-<div class="l_selectWrap">
-  <select name="listsort"  class="a md_recordSearh">
-    <option value="" selected="selected">100件</option>
-    <option value="" selected="selected">10件</option>
-  </select>
-  <div class="md_searchArrows">▼</div>
-</div>
-*/
-
-// remove table spacing
-
 table
   border-collapse: collapse
   border-spacing: 0
@@ -711,6 +699,12 @@ textarea
     display block
     clear both
     content ''
+.l_cf
+  &:after
+    display block
+    clear both
+    content ''
+  
 
 //layout
 .l_right
@@ -772,27 +766,57 @@ textarea
 section
   padding 10px
   .md_readWrap
-    background: #ECEBEB;
+    @extend .l_cf
+    background: #FCFDFC;
     padding: 10px;
     border-radius: 3px;
     display block
     margin-top 10px
     &:first-child
       margin-top 0px
+    &:hover
+      opacity .7
     
   .md_readTitle    
-    p
-      margin 0 0 10px
-      width 100%
-      overflow hidden
-      white-space nowrap
-      text-overflow ellipsis
-      
+    margin 0 0 10px
+    
+  .md_readMeta
+    display block
+    @extend .l_cf
+  .md_update
+    font-size 10px
+    float right
+    margin-bottom 10px
+    
+  .md_readContent
+    font-size 12px
+    margin-bottom 10px
+          
 .md_btn
   padding 5px  
   color #fff
   border-radius 3px
   display inline-block
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  box-sizing: border-box;
+  font-size 14px
+  line-height 16px
+  text-align center
+  white-space nowrap
+  vertical-align middle
+  -ms-touch-action manipulation
+  touch-action manipulation
+  cursor pointer
+  -webkit-user-select none
+  -moz-user-select none
+  -ms-user-select none
+  user-select none
+  background-image none
+  border 1px solid transparent
+  border-radius 4px
+  margin-right 10px
   
   &.is_large
     padding 10px
@@ -801,19 +825,68 @@ section
   &.is_middle
     padding 7px
     font-size 12px
+    
+  &.is_small
+    padding 3px 2px
+    font-size 10px
+    letter-spacing .1px
+    line-height 16px
   
   &.is_green
     background-color #369043
     
+  &.is_pink
+    background-color #de589c
   
+  &.is_gray
+    color #777
+    background #e5e5e5
+    
+.md_ratioBox
+  position relative
+  top 0
+  left 0
+  width 22%
+  height auto
+  margin-right 3%
+
+  &.ratio-1_1
+    &:before
+      content ""
+      display block
+      padding-top 100%
+      
+  .inner
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+
+  .is_table
+    display table
+    width 100%
+    height 100%
+    text-align center
+    
+    & *
+      width 100%
+      height 100%
 
 .md_newRead
-  font-size 10px
-  padding 3px 5px
-  color #fff
-  background #DE589C
-  border-radius 3px
-  margin-right 5px
+  font-size: 10px;
+  line-height 12px
+  color: #de589c;
+  border-radius: 3px;
+  margin-right: 5px;
+  letter-spacing: .1px;
+  display inline-block
+  vertical-align middle
+  
+.md_readMetaAdjust
+  position relative
+  float right
+  @extend .l_horizon
     
 h1,h2,h3,h4
   font-size 30px
@@ -831,7 +904,28 @@ p
   line-height 17px
   color #777
   
+@media (min-width: 600px)
+  .md_readMeta
+    width 89%
+  .md_ratioBox
+    width 8%
+  
 @media (max-width: 600px)
+  .md_readMetaAdjust
+    float none
+  .md_readMeta
+    width 75%
+  .md_readContent
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  .md_update
+  .md_btn
+    letter-spacing -.5px
+    
+  .md_btn
+    margin-right 5px
+    
   .container    
     .item
       &:nth-child(n+7)

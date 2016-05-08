@@ -353,6 +353,7 @@ body {
   opacity: 0;
   -webkit-transition: all 1s;
           transition: all 1s;
+  letter-spacing: 0.6px;
 }
 header,
 footer,
@@ -570,16 +571,6 @@ select::-ms-expand {
 select::-ms-value {
   color: currentColor;
 }
-/*
-<span class="is_ftSize_14 is_mR5">表示件数&nbsp:</span>
-<div class="l_selectWrap">
-  <select name="listsort"  class="a md_recordSearh">
-    <option value="" selected="selected">100件</option>
-    <option value="" selected="selected">10件</option>
-  </select>
-  <div class="md_searchArrows">▼</div>
-</div>
-*/
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -604,13 +595,25 @@ textarea {
     position: absolute !important;
   }
 }
-.l_horizon {
+.l_horizon,
+.md_readMetaAdjust {
   position: relative;
 }
-.l_horizon > * {
+.l_horizon > *,
+.md_readMetaAdjust > * {
   float: left;
 }
-.l_horizon:after {
+.l_horizon:after,
+.md_readMetaAdjust:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+.l_cf:after,
+#header .md_readWrap:after,
+section .md_readWrap:after,
+#header .md_readMeta:after,
+section .md_readMeta:after {
   display: block;
   clear: both;
   content: '';
@@ -676,7 +679,7 @@ section {
 }
 #header .md_readWrap,
 section .md_readWrap {
-  background: #ecebeb;
+  background: #fcfdfc;
   padding: 10px;
   border-radius: 3px;
   display: block;
@@ -686,19 +689,54 @@ section .md_readWrap {
 section .md_readWrap:first-child {
   margin-top: 0px;
 }
-#header .md_readTitle p,
-section .md_readTitle p {
+#header .md_readWrap:hover,
+section .md_readWrap:hover {
+  opacity: 0.7;
+}
+#header .md_readTitle,
+section .md_readTitle {
   margin: 0 0 10px;
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+}
+#header .md_readMeta,
+section .md_readMeta {
+  display: block;
+}
+#header .md_update,
+section .md_update {
+  font-size: 10px;
+  float: right;
+  margin-bottom: 10px;
+}
+#header .md_readContent,
+section .md_readContent {
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 .md_btn {
   padding: 5px;
   color: #fff;
   border-radius: 3px;
   display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-right: 10px;
 }
 .md_btn.is_large {
   padding: 10px;
@@ -708,16 +746,65 @@ section .md_readTitle p {
   padding: 7px;
   font-size: 12px;
 }
+.md_btn.is_small {
+  padding: 3px 2px;
+  font-size: 10px;
+  letter-spacing: 0.1px;
+  line-height: 16px;
+}
 .md_btn.is_green {
   background-color: #369043;
 }
+.md_btn.is_pink {
+  background-color: #de589c;
+}
+.md_btn.is_gray {
+  color: #777;
+  background: #e5e5e5;
+}
+.md_ratioBox {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 22%;
+  height: auto;
+  margin-right: 3%;
+}
+.md_ratioBox.ratio-1_1:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.md_ratioBox .inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.md_ratioBox .is_table {
+  display: table;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.md_ratioBox .is_table * {
+  width: 100%;
+  height: 100%;
+}
 .md_newRead {
   font-size: 10px;
-  padding: 3px 5px;
-  color: #fff;
-  background: #de589c;
+  line-height: 12px;
+  color: #de589c;
   border-radius: 3px;
   margin-right: 5px;
+  letter-spacing: 0.1px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.md_readMetaAdjust {
+  position: relative;
+  float: right;
 }
 h1,
 h2,
@@ -738,7 +825,33 @@ p {
   line-height: 17px;
   color: #777;
 }
+@media (min-width: 600px) {
+  .md_readMeta {
+    width: 89%;
+  }
+  .md_ratioBox {
+    width: 8%;
+  }
+}
 @media (max-width: 600px) {
+  .md_readMetaAdjust {
+    float: none;
+  }
+  .md_readMeta {
+    width: 75%;
+  }
+  .md_readContent {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .md_update,
+  .md_btn {
+    letter-spacing: -0.5px;
+  }
+  .md_btn {
+    margin-right: 5px;
+  }
   .container .item:nth-child(n+7) {
     display: none;
   }

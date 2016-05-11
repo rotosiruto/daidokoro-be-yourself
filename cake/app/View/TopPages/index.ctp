@@ -75,11 +75,11 @@ function tag_weekday_japanese_convert( $date ){
     $performance_day = NULL;
   }
 
-  if ($value['Content']['registration_date']) {
-    $registration_date = date_format(date_create($value['Content']['registration_date']), 'Y/m/d');
+  if ($value['Content']['updated_at']) {
+    $updated_at = date_format(date_create($value['Content']['updated_at']), 'Y/m/d');
   }
   else {
-    $registration_date = NULL;
+    $updated_at = NULL;
   }
 
 
@@ -91,35 +91,30 @@ function tag_weekday_japanese_convert( $date ){
   }
 ?>
 
-  <a class="md_readWrap l_horizon" href="<?php echo $value['Content']['id'];?>">
+  <a class="md_readWrap l_horizon" href="contents?id=<?php echo $value['Content']['id'];?>">
     <div class="md_ratioBox ratio-1_1">
       <div class="inner">
         <div class="is_table">
-          <img src="<?php echo $thumbnail;?>" alt="">   
+          <img src="<?php echo $thumbnail;?>" alt="<?php echo $value['Content']['title']?>">   
         </div>
       </div>
     </div>     
     <div class="md_readMeta">
       <p class="md_readTitle">
         <?php
-            if(day_diff($registration_date, $today) < 30) {
+            if(day_diff($updated_at, $today) < 30) {
             echo '<span class="md_newRead">新着!</span>';
           }
           echo mb_strimwidth($value['Content']['title'], 0, 60, '・・・', 'UTF-8');
         ?>
-        <span class="md_update">更新日:<?php echo $registration_date.'('.tag_weekday_japanese_convert($registration_date).')';?>
+        <span class="md_update">更新日:<?php echo $updated_at.'('.tag_weekday_japanese_convert($updated_at).')';?>
         </span>   
       </p>
       <p class="md_readContent">
         <?php            
           echo mb_strimwidth($value['Content']['contents'], 0, 200, '・・・', 'UTF-8');
         ?> 
-      </p>
-      <?php
-        if($value['Content']['do_performance']){
-          echo '<div class="md_btn is_gray is_middle l_ac">公演開催日： '.$performance_day.'('.tag_weekday_japanese_convert($performance_day).')</div>';
-        }
-      ?> 
+      </p>      
     </div>
   </a>
 <?php endforeach; ?>

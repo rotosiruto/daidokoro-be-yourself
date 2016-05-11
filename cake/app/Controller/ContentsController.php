@@ -29,15 +29,13 @@ App::uses('Folder', 'Utility');
  * @package       app.Controller
  * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
  */
-class TopPagesController extends AppController {
+class ContentsController extends AppController {
 	public $autoLayout = false;
 	public $uses = array('Content');
 	public function index() {
 	    //インスタンスを作成
-	    $contentsData = $this -> Content -> find('all',array('limit' =>10,'order' => array('updated_at' => 'desc'), ));
-
-	    $dir = new Folder('img/masonry');
-	    $files = $dir->read();
-	    $this->set(compact('files', 'contentsData'));
+	    $data = $this->request->query('id');
+	    $contentsPage = $this -> Content -> find('first',array('conditions' => array('id' => $data)));
+	    $this -> set('contentsPage',$contentsPage);
 	}	
 }

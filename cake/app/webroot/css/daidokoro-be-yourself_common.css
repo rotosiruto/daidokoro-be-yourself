@@ -595,16 +595,13 @@ textarea {
     position: absolute !important;
   }
 }
-.l_horizon,
-.md_readMetaAdjust {
+.l_horizon {
   position: relative;
 }
-.l_horizon > *,
-.md_readMetaAdjust > * {
+.l_horizon > * {
   float: left;
 }
-.l_horizon:after,
-.md_readMetaAdjust:after {
+.l_horizon:after {
   display: block;
   clear: both;
   content: '';
@@ -802,10 +799,6 @@ section .md_readContent {
   display: inline-block;
   vertical-align: middle;
 }
-.md_readMetaAdjust {
-  position: relative;
-  float: right;
-}
 h1,
 h2,
 h3,
@@ -825,7 +818,7 @@ p {
   line-height: 17px;
   color: #777;
 }
-@media (min-width: 600px) {
+@media (min-width: 450px) {
   .md_readMeta {
     width: 89%;
   }
@@ -833,10 +826,7 @@ p {
     width: 8%;
   }
 }
-@media (max-width: 600px) {
-  .md_readMetaAdjust {
-    float: none;
-  }
+@media (max-width: 450px) {
   .md_readMeta {
     width: 75%;
   }

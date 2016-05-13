@@ -21,8 +21,14 @@ echo $this->Html->css('daidokoro-be-yourself_common.css')."\n";
 <body>
 <div id="wrapper">
 <div id="header">
-<h1 class="">ゆる～り シンプル 自然な台所</h1>
-<p>食べ物で家族を守る学び場 『こまちの台所』 <br>神奈川県 海老名市 県央地区 管理栄養士 こまち あや</p>
+<div class="l_horizon">
+  <h1 class="">ゆる～り シンプル 自然な台所</h1>
+  <ul>
+    <li><a href="" class="a">お問い合わせ</a></li>
+  </ul> 
+</div>
+
+<p>食べ物で家族を守る学び場 『こまちの台所』 食べ物で家族を守る学び場 『こまちの台所』<br>神奈川県 海老名市 県央地区 管理栄養士 こまち あや</p>
 </div>
 <div id="js-container" class="container">
 
@@ -68,11 +74,11 @@ function tag_weekday_japanese_convert( $date ){
 
 <?php foreach ($contentsData as $key => $value):?>
 <?php
-  if($value['Content']['performance_day']){
-    $performance_day = date_format(date_create($value['Content']['performance_day']), 'Y/m/d');
+  if($value['Content']['performance_day_start']){
+    $performance_day_start = date_format(date_create($value['Content']['performance_day_start']), 'Y/m/d');
   }
   else {
-    $performance_day = NULL;
+    $performance_day_start = NULL;
   }
 
   if ($value['Content']['updated_at']) {

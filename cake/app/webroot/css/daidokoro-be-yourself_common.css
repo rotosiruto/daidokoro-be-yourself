@@ -355,13 +355,6 @@ body {
           transition: all 1s;
   letter-spacing: 0.6px;
 }
-header,
-footer,
-.l_footerBottom,
-.l_gNav,
-main {
-  min-width: 960px;
-}
 :root {
   -ms-overflow-style: -ms-autohiding-scrollbar;
   overflow-y: scroll;
@@ -635,6 +628,7 @@ section .md_readMeta:after {
 }
 .a {
   text-decoration: none;
+  color: #777;
 }
 .aDeco {
   cursor: pointer;
@@ -651,6 +645,20 @@ section .md_readMeta:after {
   width: 100%;
   margin: 0 auto;
   position: relative;
+}
+.md_vertical > * {
+  position: relative;
+  margin-right: 5px;
+}
+.md_vertical > *:after {
+  position: absolute;
+  content: '|';
+}
+.md_vertical > *:last-child {
+  margin-right: 0;
+}
+.md_vertical > *:last-child:after {
+  content: none;
 }
 .item {
   margin: 0px;
@@ -670,9 +678,24 @@ section .md_readMeta:after {
 .fade {
   opacity: 1;
 }
+li {
+  list-style: none;
+  display: inline;
+}
+#header > .l_horizon:first-child > *:last-child {
+  float: right;
+}
 #header,
 section {
   padding: 10px;
+}
+#header *,
+section * {
+  margin-bottom: 15px;
+}
+#header *:last-child,
+section *:last-child {
+  margin-bottom: 0px;
 }
 #header .md_readWrap,
 section .md_readWrap {
@@ -799,6 +822,11 @@ section .md_readContent {
   display: inline-block;
   vertical-align: middle;
 }
+* {
+  font-size: 14px;
+  line-height: 17px;
+  color: #777;
+}
 h1,
 h2,
 h3,
@@ -813,10 +841,31 @@ h4 {
   font-weight: bold;
   line-height: 1.2em;
 }
-p {
-  font-size: 14px;
-  line-height: 17px;
-  color: #777;
+.performance_data {
+  width: 100%;
+  border: 2px solid #d6ceb4;
+}
+.performance_data th {
+  padding: 6px 8px 5px;
+  border-top: solid 1px #fff;
+  width: 17%;
+  overflow: hidden;
+  color: #13131e;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 100%;
+  text-align: left;
+  vertical-align: top;
+  background-color: #eeece4;
+}
+.performance_data td {
+  padding: 5px 10px;
+  border-top: dotted 1px #e0dccc;
+  overflow: hidden;
+  color: #595960;
+  text-align: left;
+  vertical-align: top;
+  background-color: #fff;
 }
 @media (min-width: 450px) {
   .md_readMeta {

@@ -435,12 +435,7 @@ body
   transition all 1s
   letter-spacing .6px
 
-header
-footer
-.l_footerBottom
-.l_gNav
-main
-  min-width 960px
+
 
 :root
   -ms-overflow-style: -ms-autohiding-scrollbar // IE11+
@@ -728,6 +723,7 @@ textarea
 .a
   text-decoration none
   @extend .is_hover_transition
+  color #777
 
 .aDeco
   cursor pointer
@@ -743,6 +739,20 @@ textarea
   width 100%
   margin 0 auto
   position relative
+  
+.md_vertical
+  & > *
+    position relative
+    margin-right 5px
+    &:after
+      position absolute
+      content '|'
+    &:last-child
+      margin-right 0
+      &:after
+        content none
+        
+      
 
 
 .item
@@ -759,12 +769,27 @@ textarea
     
 .fade
   opacity 1
-      
 
+li
+  list-style none
+  display inline
+      
+#header
+  & > .l_horizon
+    &:first-child
+      & > *
+        &:last-child
+          float right
+    
+    
 
 #header
 section
   padding 10px
+  *
+    margin-bottom 15px
+    &:last-child
+      margin-bottom 0px
   .md_readWrap
     @extend .l_cf
     background: #FCFDFC;
@@ -883,6 +908,12 @@ section
   display inline-block
   vertical-align middle
     
+    
+*
+  font-size 14px
+  line-height 17px
+  color #777
+  
 h1,h2,h3,h4
   font-size 30px
   color #777  
@@ -893,11 +924,31 @@ h1,h2,h3,h4
   -webkit-margin-end 0px
   font-weight bold
   line-height 1.2em
-    
-p
-  font-size 14px
-  line-height 17px
-  color #777
+
+.performance_data
+  width 100%
+  border 2px solid #d6ceb4
+  th
+    padding 6px 8px 5px
+    border-top solid 1px #ffffff
+    width 17%
+    overflow hidden
+    color #13131e
+    font-style normal
+    font-weight bold
+    font-size 100%
+    text-align left
+    vertical-align top
+    background-color #eeece4
+  
+  td
+    padding 5px 10px
+    border-top dotted 1px #e0dccc
+    overflow hidden
+    color #595960
+    text-align left
+    vertical-align top
+    background-color #ffffff
   
 @media (min-width: 450px)
   .md_readMeta
@@ -923,3 +974,4 @@ p
     .item
       &:nth-child(n+7)
         display none
+        
